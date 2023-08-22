@@ -1,14 +1,10 @@
-const express = require('express')
+import express from 'express'
 const app = express()
 const port = 3000
-var bodyParser = require('body-parser');
-var usuarioDoc;
+import bodyParser from 'body-parser'
 
-
-
-const { MongoClient, ServerApiVersion } = require('mongodb');
+import { MongoClient, ServerApiVersion } from 'mongodb';
 const uri = "mongodb+srv://matheuscursino115:matheus123@auth-database.ngnx8lc.mongodb.net/?retryWrites=true&w=majority";
-
 const client = new MongoClient(uri, {
   serverApi: {
     version: ServerApiVersion.v1,
@@ -16,6 +12,7 @@ const client = new MongoClient(uri, {
     deprecationErrors: true,
   }
 });
+export const db = client.db('auth-database');
 
 async function run() {
   try {
@@ -28,24 +25,23 @@ async function run() {
 }
 run().catch(console.dir);
 
-const db = client.db('auth-database');
-
 app.use(bodyParser.urlencoded({
     extended: true
   }));
 
 app.use(bodyParser.json());
-
-
 app.set('view engine', 'ejs');
 app.set('views', './view');
 
+import router from "./routes/login.route.js"
 
 app.get('/', (req, res) =>  {
     res.render('index')
 })
 
-app.route('/login')
+app.use('/login', router)
+
+/* app.route('/login')
   .get(function(req, res) {
     res.render('login');
   })
@@ -57,7 +53,7 @@ app.route('/login')
         console.log(usuarioDoc)
     })
 
-  })
+  }) */
 
 
 app.route('/registrar')
@@ -68,12 +64,8 @@ app.route('/registrar')
   res.send('');
 })
 
-
-async function consultar() {
-    usuarioDoc =  await db.collection('users').find({usuario: reqUsuario}).toArray()
-  }
-  
-
 app.listen(port, () => {
     console.log(`Servidor iniciado na porta ${port}`)
 })
+
+export default db;
