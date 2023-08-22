@@ -41,20 +41,6 @@ app.get('/', (req, res) =>  {
 
 app.use('/login', router)
 
-/* app.route('/login')
-  .get(function(req, res) {
-    res.render('login');
-  })
-  .post(function(req, res) {
-    const reqBodyParsed = Object.values(req.body)
-    reqUsuario = reqBodyParsed[0]
-    reqSenha = reqBodyParsed[1]
-    consultar().then( () => {
-        console.log(usuarioDoc)
-    })
-
-  }) */
-
 
 app.route('/registrar')
 .get(function(req, res) {

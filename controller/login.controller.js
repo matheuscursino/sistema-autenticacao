@@ -13,6 +13,11 @@ export function ChecarUsuarioESenha(req, res) {
     reqSenha = reqBodyParsed[1]
     consultar().then( () => {
         console.log(usuarioDoc)
+        if (usuarioDoc = []) {
+            res
+                .status(404)
+                .send("Usuario não encontrado")
+        }
     })
 }
 
