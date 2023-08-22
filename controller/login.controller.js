@@ -1,5 +1,8 @@
 import {db} from '../main.js'
 var usuarioDoc;
+var usuarioDocParsed;
+var usuarioDocSenha;
+var reqBodyParsed;
 var reqUsuario;
 var reqSenha;
 
@@ -8,15 +11,20 @@ export function RetornarEjs() {
 }
 
 export function ChecarUsuarioESenha(req, res) {
-    const reqBodyParsed = Object.values(req.body)
+    reqBodyParsed = Object.values(req.body)
     reqUsuario = reqBodyParsed[0]
     reqSenha = reqBodyParsed[1]
     consultar().then( () => {
-        console.log(usuarioDoc)
-        if (usuarioDoc = []) {
+        usuarioDocParsed = Object.values(usuarioDoc[0])
+        usuarioDocSenha = usuarioDocParsed[2]
+        if (usuarioDoc.length = 0) {
             res
                 .status(404)
-                .send("Usuario não encontrado")
+                .send("Usuário não encontrado")
+        } else if (reqSenha != usuarioDocSenha) {
+            res
+                .status(403)
+                .send("Senha incorreta")
         }
     })
 }
