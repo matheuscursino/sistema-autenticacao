@@ -23,7 +23,7 @@ export function ChecarUsuarioESenha(req, res) {
                 .send("Usuário não encontrado")
         } else if (reqSenha != usuarioDocSenha) {
             res
-                .status(403)
+                .status(401)
                 .send("Senha incorreta")
         }
     })
