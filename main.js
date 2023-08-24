@@ -40,6 +40,7 @@ app.get('/', (req, res) =>  {
 })
 
 app.use('/login', router)
+app.use('/registrar', router2)
 
 
 app.route('/registrar')
