@@ -1,8 +1,8 @@
 import {db} from '../main.js'
 var usuarioDoc;
-var usuarioDocParsed;
+var usuarioDocValores;
 var usuarioDocSenha;
-var reqBodyParsed;
+var reqBodyValores;
 var reqUsuario;
 var reqSenha;
 
@@ -11,12 +11,12 @@ export function RetornarEjs() {
 }
 
 export function ChecarUsuarioESenha(req, res) {
-    reqBodyParsed = Object.values(req.body)
-    reqUsuario = reqBodyParsed[0]
-    reqSenha = reqBodyParsed[1]
+    reqBodyValores = Object.values(req.body)
+    reqUsuario = reqBodyValores[0]
+    reqSenha = reqBodyValores[1]
     consultar().then( () => {
-        usuarioDocParsed = Object.values(usuarioDoc[0])
-        usuarioDocSenha = usuarioDocParsed[2]
+        usuarioDocValores = Object.values(usuarioDoc[0])
+        usuarioDocSenha = usuarioDocValores[2]
         if (usuarioDoc.length = 0) {
             res
                 .status(404)

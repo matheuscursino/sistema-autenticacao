@@ -43,15 +43,6 @@ app.get('/', (req, res) =>  {
 app.use('/login', loginRouter)
 app.use('/registrar', registrarRouter)
 
-
-app.route('/registrar')
-.get(function(req, res) {
-  res.render('registrar');
-})
-.post(function(req, res) {
-  res.send('');
-})
-
 app.listen(port, () => {
     console.log(`Servidor iniciado na porta ${port}`)
 })
