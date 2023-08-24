@@ -33,14 +33,15 @@ app.use(bodyParser.json());
 app.set('view engine', 'ejs');
 app.set('views', './view');
 
-import router from "./routes/login.route.js"
+import loginRouter from "./routes/login.route.js"
+import registrarRouter from "./routes/registrar.route.js"
 
 app.get('/', (req, res) =>  {
     res.render('index')
 })
 
-app.use('/login', router)
-app.use('/registrar', router2)
+app.use('/login', loginRouter)
+app.use('/registrar', registrarRouter)
 
 
 app.route('/registrar')

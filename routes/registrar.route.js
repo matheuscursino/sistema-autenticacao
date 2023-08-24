@@ -1,7 +1,7 @@
 import express from 'express'
-var router2 = express.Router()
-import { RetornarEjs } from '../controller/registrar.controller'
+var registrarRouter = express.Router()
+import { RetornarEjs } from '../controller/registrar.controller.js'
 
-router2.get('/', RetornarEjs)
+registrarRouter.get('/', RetornarEjs)
 
-export default router2
+export default registrarRouter

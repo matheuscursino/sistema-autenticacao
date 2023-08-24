@@ -1,9 +1,9 @@
 import express from 'express'
-var router = express.Router();
+var loginRouter = express.Router();
 import { ChecarUsuarioESenha, RetornarEjs } from '../controller/login.controller.js';
 
 
-router.get('/', RetornarEjs);
-router.post('/', ChecarUsuarioESenha);
+loginRouter.get('/', RetornarEjs);
+loginRouter.post('/', ChecarUsuarioESenha);
 
-export default router;
+export default loginRouter;
