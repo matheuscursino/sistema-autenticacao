@@ -3,7 +3,19 @@ const app = express()
 const port = 3000
 import bodyParser from 'body-parser'
 
-import { MongoClient, ServerApiVersion } from 'mongodb';
+import mongoose from 'mongoose';
+
+async function main() {
+  await mongoose.connect('mongodb+srv://matheuscursino115:matheus123@auth-database.ngnx8lc.mongodb.net/?retryWrites=true&w=majority');
+}
+
+main().then(()=>{
+  console.log("Conectado com o banco de dados")
+}).catch((err)=>{
+  console.log(err)
+})
+
+/* import { MongoClient, ServerApiVersion } from 'mongodb';
 const uri = "mongodb+srv://matheuscursino115:matheus123@auth-database.ngnx8lc.mongodb.net/?retryWrites=true&w=majority";
 const client = new MongoClient(uri, {
   serverApi: {
@@ -12,9 +24,10 @@ const client = new MongoClient(uri, {
     deprecationErrors: true,
   }
 });
-export const db = client.db('auth-database');
+*/
+// export const db = client.db('auth-database');
 
-async function run() {
+/* async function run() {
   try {
     await client.connect();
     await client.db("admin").command({ ping: 1 });
@@ -23,7 +36,7 @@ async function run() {
     // await client.close();
   }
 }
-run().catch(console.dir);
+run().catch(console.dir); */
 
 app.use(bodyParser.urlencoded({
     extended: true
@@ -47,4 +60,4 @@ app.listen(port, () => {
     console.log(`Servidor iniciado na porta ${port}`)
 })
 
-export default db;
+// export default db;
