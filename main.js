@@ -6,7 +6,7 @@ import bodyParser from 'body-parser'
 import mongoose from 'mongoose';
 
 async function main() {
-  await mongoose.connect('mongodb+srv://matheuscursino115:matheus123@auth-database.ngnx8lc.mongodb.net/?retryWrites=true&w=majority');
+  await mongoose.connect('mongodb+srv://matheuscursino115:matheus123@auth-database.ngnx8lc.mongodb.net/auth-database?retryWrites=true&w=majority');
 }
 
 main().then(()=>{

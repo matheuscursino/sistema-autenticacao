@@ -4,8 +4,9 @@ var usuarioDocSenha;
 var reqBodyValores;
 var reqUsuario;
 var reqSenha;
+var a;
 
-import usuarioModel from "../model/usuario.model.js";
+import usuarioModel from "../model/usuario.model.js"
 
 export function RetornarEjs() {
     res.renderFile('../view/index.ejs')
@@ -15,6 +16,7 @@ export function ChecarUsuarioESenha(req, res) {
     reqBodyValores = Object.values(req.body)
     reqUsuario = reqBodyValores[0]
     reqSenha = reqBodyValores[1]
+
     consultar().then( () => {
         console.log(usuarioDoc)
         usuarioDocValores = Object.values(usuarioDoc[0])
@@ -30,12 +32,11 @@ export function ChecarUsuarioESenha(req, res) {
         } else if (reqSenha == usuarioDocSenha){
             //
         }
-    })
+    }) 
 }
 
 async function consultar() {
     usuarioDoc = await usuarioModel.findOne().lean()
-    console.log(usuarioDoc)
 }
 
 
