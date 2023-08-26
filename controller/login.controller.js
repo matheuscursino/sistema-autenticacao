@@ -19,7 +19,7 @@ export function ChecarUsuarioESenha(req, res) {
 
     consultar().then( () => {
         console.log(usuarioDoc)
-        usuarioDocValores = Object.values(usuarioDoc[0])
+        usuarioDocValores = Object.values(usuarioDoc)
         usuarioDocSenha = usuarioDocValores[2]
         if (usuarioDoc.length = 0) {
             res
