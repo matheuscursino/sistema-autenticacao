@@ -2,6 +2,7 @@ import mongoose from 'mongoose'
 const { Schema } = mongoose
 
 const usuarioSchema = new Schema({
+    nome: String,
     usuario: String,
     senha: String
 })

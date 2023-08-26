@@ -4,7 +4,6 @@ var usuarioDocSenha;
 var reqBodyValores;
 var reqUsuario;
 var reqSenha;
-var a;
 
 import usuarioModel from "../model/usuario.model.js"
 
@@ -20,7 +19,7 @@ export function ChecarUsuarioESenha(req, res) {
     consultar().then( () => {
         console.log(usuarioDoc)
         usuarioDocValores = Object.values(usuarioDoc)
-        usuarioDocSenha = usuarioDocValores[2]
+        usuarioDocSenha = usuarioDocValores[3]
         if (usuarioDoc.length = 0) {
             res
                 .status(404)
