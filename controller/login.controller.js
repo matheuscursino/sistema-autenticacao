@@ -9,8 +9,16 @@ var reqSenha;
 import usuarioModel from "../model/usuario.model.js"
 import jwt from "jsonwebtoken";
 
-export function RetornarEjs() {
-    res.renderFile('../view/index.ejs')
+export function RetornarEjs(req, res) {
+    if (req.cookies == null){
+        res.render('../view/login.ejs')
+    } else {
+        var token = Object.values(req.cookies)
+        jwt.verify(token[0], process.env.SEGREDO, function(err, decoded) {
+            var id = decoded.usuarioDocId;
+            console.log(id)
+          });
+    }
 }
 
 export function ChecarUsuarioESenha(req, res) {
