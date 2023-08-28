@@ -2,6 +2,7 @@ import loginRouter from "./routes/login.route.js"
 import registrarRouter from "./routes/registrar.route.js"
 import express from 'express'
 import bodyParser from 'body-parser'
+import cookieParser from 'cookie-parser'
 import mongoose from 'mongoose'
 import dotenv  from 'dotenv'
 const app = express()
@@ -24,6 +25,7 @@ app.use(bodyParser.urlencoded({
   }));
 
 app.use(bodyParser.json());
+app.use(cookieParser())
 app.set('view engine', 'ejs');
 app.set('views', './view');
 

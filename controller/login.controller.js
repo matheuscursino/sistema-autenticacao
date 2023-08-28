@@ -19,10 +19,9 @@ export function ChecarUsuarioESenha(req, res) {
     reqSenha = reqBodyValores[1]
 
     consultar().then( () => {
-        console.log(usuarioDoc)
         usuarioDocValores = Object.values(usuarioDoc)
         usuarioDocId = usuarioDocValores[0].toHexString()
-        usuarioDocSenha = usuarioDocValores[3]
+        usuarioDocSenha = usuarioDocValores[2]
         if (usuarioDoc.length = 0) {
             res
                 .status(404)
@@ -32,9 +31,11 @@ export function ChecarUsuarioESenha(req, res) {
                 .status(401)
                 .send("Senha incorreta")
         } else if (reqSenha == usuarioDocSenha){
-            const token = jwt.sign({usuarioDocId}, process.env.SECRET)
+            const token = jwt.sign({usuarioDocId}, process.env.SEGREDO)
             res
                 .status(200)
+                .cookie("access_token", token, {httpOnly: true})
+                .send("Logado")
         }
     }) 
 }
