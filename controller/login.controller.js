@@ -6,6 +6,7 @@ var reqUsuario;
 var reqSenha;
 
 import usuarioModel from "../model/usuario.model.js"
+import jwt from "jsonwebtoken";
 
 export function RetornarEjs() {
     res.renderFile('../view/index.ejs')
