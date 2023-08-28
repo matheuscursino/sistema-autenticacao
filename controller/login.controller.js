@@ -1,5 +1,6 @@
 var usuarioDoc;
 var usuarioDocValores;
+var usuarioDocId;
 var usuarioDocSenha;
 var reqBodyValores;
 var reqUsuario;
@@ -20,6 +21,7 @@ export function ChecarUsuarioESenha(req, res) {
     consultar().then( () => {
         console.log(usuarioDoc)
         usuarioDocValores = Object.values(usuarioDoc)
+        usuarioDocId = usuarioDocValores[0].toHexString()
         usuarioDocSenha = usuarioDocValores[3]
         if (usuarioDoc.length = 0) {
             res
@@ -30,7 +32,9 @@ export function ChecarUsuarioESenha(req, res) {
                 .status(401)
                 .send("Senha incorreta")
         } else if (reqSenha == usuarioDocSenha){
-            //
+            const token = jwt.sign({usuarioDocId}, process.env.SECRET)
+            res
+                .status(200)
         }
     }) 
 }
