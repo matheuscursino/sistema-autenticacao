@@ -11,13 +11,13 @@ import jwt from "jsonwebtoken";
 
 export function RetornarEjs(req, res) {
     if (req.cookies == null){
-        res.render('../view/login.ejs')
+        res
+            .render('../view/login.ejs')
+            .status(200)
     } else {
-        var token = Object.values(req.cookies)
-        jwt.verify(token[0], process.env.SEGREDO, function(err, decoded) {
-            var id = decoded.usuarioDocId;
-            console.log(id)
-          });
+        res
+            .status()
+            .render('../view/segredo.ejs')
     }
 }
 
@@ -49,7 +49,7 @@ export function ChecarUsuarioESenha(req, res) {
 }
 
 async function consultar() {
-    usuarioDoc = await usuarioModel.findOne().lean()
+    usuarioDoc = await usuarioModel.findOne({usuario: reqUsuario}).lean()
 }
 
 
