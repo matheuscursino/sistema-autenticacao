@@ -1,7 +1,7 @@
 import usuarioModel from '../model/usuario.model.js'
 var reqBodyValores
 var reqUsuario
-var usuarioDoc;
+var usuarioDoc
 
 export function RetornarEjs(req, res){
     res.renderFile('../view/registrar.ejs')
@@ -19,6 +19,7 @@ export function RegistrarUsuario(req, res){
                 res
                     .status(201)
                     .send('Usuario criado')
+                    .redirect('/login')
             })
         } else {
             res
