@@ -10,14 +10,14 @@ import usuarioModel from "../model/usuario.model.js"
 import jwt from "jsonwebtoken";
 
 export function RetornarEjs(req, res) {
-    if (req.cookies == null){
+    if (req.cookies = {}){
         res
-            .render('../view/login.ejs')
             .status(200)
+            .render("../view/login.ejs")
     } else {
         res
-            .status()
-            .render('../view/segredo.ejs')
+            .status(403)
+            .redirect('/segredo')
     }
 }
 
@@ -29,7 +29,7 @@ export function ChecarUsuarioESenha(req, res) {
     consultar().then( () => {
         usuarioDocValores = Object.values(usuarioDoc)
         usuarioDocId = usuarioDocValores[0].toHexString()
-        usuarioDocSenha = usuarioDocValores[2]
+        usuarioDocSenha = usuarioDocValores[3]
         if (usuarioDoc == null) {
             res
                 .status(404)

@@ -6,19 +6,27 @@ var usuarioDoc;
 var usuarioDocValores;
 
 export default function RetornarEjs(req, res){
+  if (req.cookies = {}){
+    res
+        .status(401)
+        .redirect('/login')
+} else {
+  console.log(req.cookies)
     var token = Object.values(req.cookies)
     jwt.verify(token[0], process.env.SEGREDO, function(err, decoded) {
         id = decoded.usuarioDocId;
+        consultar().then(() => {
+          console.log(usuarioDoc)
+          usuarioDocValores = Object.values(usuarioDoc)
+          nome = usuarioDocValores[1]
+        })
+        res
+            .status(200)
+            .render('../view/segredo.ejs', {
+                nome: nome
+        })
       }); // to-do: adicionar resposta caso de erro
-      consultar().then(() => {
-        console.log(usuarioDoc)
-        usuarioDocValores = Object.values(usuarioDoc)
-        nome = usuarioDocValores[1]
-      })
-      res.render('../view/segredo.ejs', {
-        nome: nome
-      })
-
+    }
 }
 
 async function consultar() {
