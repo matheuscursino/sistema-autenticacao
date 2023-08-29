@@ -1,13 +1,13 @@
-var usuarioDoc;
-var usuarioDocValores;
-var usuarioDocId;
-var usuarioDocSenha;
-var reqBodyValores;
-var reqUsuario;
-var reqSenha;
+var usuarioDoc
+var usuarioDocValores
+var usuarioDocId
+var usuarioDocSenha
+var reqBodyValores
+var reqUsuario
+var reqSenha
 
-import usuarioModel from "../model/usuario.model.js"
-import jwt from "jsonwebtoken";
+import usuarioModel from '../model/usuario.model.js'
+import jwt from 'jsonwebtoken'
 
 export function RetornarEjs(req, res) {
     if (req.cookies = {}){
@@ -33,17 +33,17 @@ export function ChecarUsuarioESenha(req, res) {
         if (usuarioDoc == null) {
             res
                 .status(404)
-                .send("Usuário não encontrado")
+                .send('Usuário não encontrado')
         } else if (reqSenha != usuarioDocSenha) {
             res
                 .status(401)
-                .send("Senha incorreta")
+                .send('Senha incorreta')
         } else if (reqSenha == usuarioDocSenha){
             const token = jwt.sign({usuarioDocId}, process.env.SEGREDO)
             res
                 .status(200)
-                .cookie("access_token", token, {httpOnly: true})
-                .send("Logado")
+                .cookie('access_token', token, {httpOnly: true})
+                .redirect('/segredo')
         }
     }) 
 }

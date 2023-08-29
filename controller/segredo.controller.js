@@ -1,9 +1,9 @@
-import usuarioModel from "../model/usuario.model.js"
-import jwt from "jsonwebtoken";
-var id;
-var nome;
-var usuarioDoc;
-var usuarioDocValores;
+import usuarioModel from '../model/usuario.model.js'
+import jwt from 'jsonwebtoken'
+var id
+var nome
+var usuarioDoc
+var usuarioDocValores
 
 export default function RetornarEjs(req, res){
   if (req.cookies = {}){

@@ -8,7 +8,7 @@ const usuarioSchema = new Schema({
 })
 
 
-const usuarioModel = mongoose.model("users", usuarioSchema)
+const usuarioModel = mongoose.model('users', usuarioSchema)
 
 export default usuarioModel;
 

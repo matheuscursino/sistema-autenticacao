@@ -1,4 +1,4 @@
-import usuarioModel from "../model/usuario.model.js"
+import usuarioModel from '../model/usuario.model.js'
 var reqBodyValores
 var reqUsuario
 var usuarioDoc;
@@ -18,12 +18,12 @@ export function RegistrarUsuario(req, res){
             usuario.save().then(() => {
                 res
                     .status(201)
-                    .send("Usuario criado")
+                    .send('Usuario criado')
             })
         } else {
             res
                 .status(400)
-                .send("Usuario ja existe")
+                .send('Usuario ja existe')
         } 
     })
 }
