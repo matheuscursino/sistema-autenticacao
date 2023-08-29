@@ -12,7 +12,8 @@ export function RegistrarUsuario(req, res){
     reqUsuario = reqBodyValores[1]
 
     checarUsuario().then(() => {
-         if (usuarioDoc.length = 0){
+        console.log(usuarioDoc)
+         if (usuarioDoc == null){
             const usuario = new usuarioModel(req.body)
             usuario.save().then(() => {
                 res

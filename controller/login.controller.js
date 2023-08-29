@@ -30,7 +30,7 @@ export function ChecarUsuarioESenha(req, res) {
         usuarioDocValores = Object.values(usuarioDoc)
         usuarioDocId = usuarioDocValores[0].toHexString()
         usuarioDocSenha = usuarioDocValores[2]
-        if (usuarioDoc.length = 0) {
+        if (usuarioDoc == null) {
             res
                 .status(404)
                 .send("Usuário não encontrado")
