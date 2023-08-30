@@ -4,7 +4,15 @@ var reqUsuario
 var usuarioDoc
 
 export function RetornarEjs(req, res){
-    res.renderFile('../view/registrar.ejs')
+    if (req.cookies = {}){
+        res
+            .status(200)
+            .render("../view/registrar.ejs")
+    } else {
+        res
+            .status(403)
+            .redirect('/segredo')
+    }
 }
 
 export function RegistrarUsuario(req, res){
