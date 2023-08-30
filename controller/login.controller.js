@@ -26,26 +26,33 @@ export function ChecarUsuarioESenha(req, res) {
     reqUsuario = reqBodyValores[0]
     reqSenha = reqBodyValores[1]
 
-    consultar().then( () => {
-        usuarioDocValores = Object.values(usuarioDoc)
-        usuarioDocId = usuarioDocValores[0].toHexString()
-        usuarioDocSenha = usuarioDocValores[3]
-        if (usuarioDoc == null) {
-            res
-                .status(404)
-                .send('Usuário não encontrado')
-        } else if (reqSenha != usuarioDocSenha) {
-            res
-                .status(401)
-                .send('Senha incorreta')
-        } else if (reqSenha == usuarioDocSenha){
-            const token = jwt.sign({usuarioDocId}, process.env.SEGREDO)
-            res
-                .status(200)
-                .cookie('access_token', token, {httpOnly: true})
-                .redirect('/segredo')
-        }
-    }) 
+    consultar()
+                .then( () => {
+                    usuarioDocValores = Object.values(usuarioDoc)
+                    usuarioDocId = usuarioDocValores[0].toHexString()
+                    usuarioDocSenha = usuarioDocValores[3]
+                    if (usuarioDoc == null) {
+                        res
+                            .status(404)
+                            .body('Usuário não encontrado')
+                    } else if (reqSenha != usuarioDocSenha) {
+                        res
+                            .status(401)
+                            .body('Senha incorreta')
+                    } else if (reqSenha == usuarioDocSenha){
+                        const token = jwt.sign({usuarioDocId}, process.env.SEGREDO)
+                        res
+                            .status(200)
+                            .cookie('access_token', token, {httpOnly: true})
+                            .redirect('/segredo')
+                    }
+                })
+                .catch( (err) => {
+                    res
+                        .status(500)
+                        .body(err)
+                })
+
 }
 
 async function consultar() {

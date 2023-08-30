@@ -18,13 +18,13 @@ export function RegistrarUsuario(req, res){
             usuario.save().then(() => {
                 res
                     .status(201)
-                    .send('Usuario criado')
+                    .body('Usuario criado')
                     .redirect('/login')
             })
         } else {
             res
                 .status(400)
-                .send('Usuario ja existe')
+                .body('Usuario ja existe')
         } 
     })
 }
