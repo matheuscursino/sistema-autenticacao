@@ -16,12 +16,18 @@ export function RegistrarUsuario(req, res){
                         console.log(usuarioDoc)
                          if (usuarioDoc == null){
                             const usuario = new usuarioModel(req.body)
-                            usuario.save().then(() => {
-                                res
-                                    .status(201)
-                                    .body('Usuario criado')
-                                    .redirect('/login')
-                            })
+                            usuario.save()
+                                        .then(() => {
+                                            res
+                                                .status(201)
+                                                .body('Usuario criado')
+                                                .redirect('/login')
+                                        })
+                                        .catch((err) => {
+                                            res
+                                                .status(500)
+                                                .body(err)
+                                        })
                         } else {
                             res
                                 .status(400)
