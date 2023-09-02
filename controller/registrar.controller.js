@@ -4,7 +4,7 @@ var reqUsuario
 var usuarioDoc
 
 export function RetornarEjs(req, res){
-    if (!req.cookies){
+    if (req.cookies.access_token == undefined){
         res
             .status(200)
             .render("../view/registrar.ejs")

@@ -1,6 +1,7 @@
 import loginRouter from './routes/login.route.js'
 import registrarRouter from './routes/registrar.route.js'
 import segredoRouter from './routes/segredo.route.js'
+import logoutRouter from './routes/logout.route.js'
 import express from 'express'
 import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
@@ -37,6 +38,7 @@ app.get('/', (req, res) =>  {
 app.use('/login', loginRouter)
 app.use('/registrar', registrarRouter)
 app.use('/segredo', segredoRouter)
+app.use('/logout', logoutRouter)
 
 app.listen(port, () => {
     console.log(`Servidor iniciado na porta ${port}`)

@@ -8,7 +8,7 @@ var usuarioDoc
 var usuarioDocValores
 
 export default function RetornarEjs(req, res){
-  if (!req.cookies){
+  if (req.cookies.access_token == undefined){
     res
         .status(401)
         .redirect('/login')

@@ -14,7 +14,7 @@
             <a>nome: <%= nome %></a> <br>
             <a>usuario: <%= usuario %></a> <br>
             <a>senha: <%= senha %></a> <br>
-            <button onclick="" class="btn btn-primary my-5">Sair</button>
+            <button onclick="sair()" class="btn btn-primary my-5">Sair</button>
             <div c lass="col-lg-6 mx-auto">
                <p class="lead mb-4">Feito por Matheus Cursino
                     <br> Documentação <span class="text-decoration-underline text-primary" style="cursor:pointer;"> aqui </span>.
@@ -22,4 +22,17 @@
             </div>
         </div>
     </body>
+    <script>
+        function sair() {
+            fetch('/logout', {
+                method: 'GET',
+                headers: {
+                'content-type': 'application/json',
+                'accept': 'application/json'
+                }
+            }).then((response) => {
+                console.log(response)
+            })
+        }
+    </script>
 </html>

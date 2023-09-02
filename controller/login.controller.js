@@ -10,7 +10,7 @@ import usuarioModel from '../model/usuario.model.js'
 import jwt from 'jsonwebtoken'
 
 export function RetornarEjs(req, res) {
-    if (!req.cookies){
+    if (req.cookies.access_token == undefined){
         res
             .status(200)
             .render("../view/login.ejs")
@@ -43,7 +43,8 @@ export function ChecarUsuarioESenha(req, res) {
                         const token = jwt.sign({usuarioDocId}, process.env.SEGREDO)
                         res
                             .cookie('access_token', token, {httpOnly: true, sameSite: true})
-                            .redirect('/segredo')
+                            .status(200)
+                            .send('Login feito com sucesso')
                     }
                 })
                 .catch( (err) => {
