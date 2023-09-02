@@ -10,7 +10,7 @@ import usuarioModel from '../model/usuario.model.js'
 import jwt from 'jsonwebtoken'
 
 export function RetornarEjs(req, res) {
-    if (req.cookies = {}){
+    if (!req.cookies){
         res
             .status(200)
             .render("../view/login.ejs")
@@ -22,6 +22,7 @@ export function RetornarEjs(req, res) {
 }
 
 export function ChecarUsuarioESenha(req, res) {
+    console.log(req.body)
     reqBodyValores = Object.values(req.body)
     reqUsuario = reqBodyValores[0]
     reqSenha = reqBodyValores[1]
@@ -42,15 +43,14 @@ export function ChecarUsuarioESenha(req, res) {
                     } else if (reqSenha == usuarioDocSenha){
                         const token = jwt.sign({usuarioDocId}, process.env.SEGREDO)
                         res
-                            .status(200)
-                            .cookie('access_token', token, {httpOnly: true})
+                            .cookie('access_token', token, {httpOnly: true, sameSite: true})
                             .redirect('/segredo')
                     }
                 })
                 .catch( (err) => {
                     res
                         .status(500)
-                        .body(err)
+                        .send(err)
                 })
 
 }

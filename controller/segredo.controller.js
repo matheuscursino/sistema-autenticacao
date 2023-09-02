@@ -6,7 +6,7 @@ var usuarioDoc
 var usuarioDocValores
 
 export default function RetornarEjs(req, res){
-  if (req.cookies = {}){
+  if (!req.cookies){
     res
         .status(401)
         .redirect('/login')
@@ -20,7 +20,6 @@ export default function RetornarEjs(req, res){
       }
       id = decoded.usuarioDocId;
       consultar().then(() => {
-        console.log(usuarioDoc)
         usuarioDocValores = Object.values(usuarioDoc)
         nome = usuarioDocValores[1]
       })
