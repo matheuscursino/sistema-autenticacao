@@ -34,11 +34,11 @@ export function ChecarUsuarioESenha(req, res) {
                     if (usuarioDoc == null) {
                         res
                             .status(404)
-                            .body('Usuário não encontrado')
+                            .send('Usuário não encontrado')
                     } else if (reqSenha != usuarioDocSenha) {
                         res
                             .status(401)
-                            .body('Senha incorreta')
+                            .send('Senha incorreta')
                     } else if (reqSenha == usuarioDocSenha){
                         const token = jwt.sign({usuarioDocId}, process.env.SEGREDO)
                         res

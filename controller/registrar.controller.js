@@ -27,24 +27,24 @@ export function RegistrarUsuario(req, res){
                                         .then(() => {
                                             res
                                                 .status(201)
-                                                .body('Usuario criado')
+                                                .send('Usuario criado')
                                                 .redirect('/login')
                                         })
                                         .catch((err) => {
                                             res
                                                 .status(500)
-                                                .body(err)
+                                                .send(err)
                                         })
                         } else {
                             res
                                 .status(400)
-                                .body('Usuario ja existe')
+                                .send('Usuario ja existe')
                         } 
                     })
                     .catch((err) => {
                         res
                             .status(500)
-                            .body(err)
+                            .send(err)
                     })
 }
 
