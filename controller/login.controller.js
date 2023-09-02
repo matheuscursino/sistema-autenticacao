@@ -22,7 +22,6 @@ export function RetornarEjs(req, res) {
 }
 
 export function ChecarUsuarioESenha(req, res) {
-    console.log(req.body)
     reqBodyValores = Object.values(req.body)
     reqUsuario = reqBodyValores[0]
     reqSenha = reqBodyValores[1]
