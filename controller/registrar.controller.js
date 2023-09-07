@@ -38,7 +38,7 @@ export function RegistrarUsuario(req, res){
                         } else {
                             res
                                 .status(400)
-                                .send('Usuario ja existe')
+                                .send('{ "erro": "usuario ja existe" }')
                         } 
                     })
                     .catch((err) => {

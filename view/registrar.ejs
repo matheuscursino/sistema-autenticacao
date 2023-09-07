@@ -9,7 +9,7 @@
     <body style="background-color:#202020;">
         <div class="py-5 my-5 w-50 container text-white align-items-center text-center">
             <h1 class="text-center">Registre-se abaixo</h1>
-                <form action="/registrar" method="post" class=" d-flex flex-column align-items-center justify-content-center">
+                <form id="form" class=" d-flex flex-column align-items-center justify-content-center">
                         <label for="inputNome" class="form=label mt-3 ">Nome</label>
                         <input type="text" class="form-control w-75 mb-3" id="inputNome" name="nome">
 
@@ -18,9 +18,43 @@
 
                         <label for="inputSenha" class="form=label">Senha</label>
                         <input type="password" class="form-control w-75 mb-4" id="inputSenha" name="senha"> 
-                        <button type="submit" class="btn btn-primary text-white mb-4">Registrar</button>
+                        <button onclick="registrar()" type="submit" class="btn btn-primary text-white mb-4">Registrar</button>
                 </form>
                 <h4 class="text-center">Já tem uma conta? Entre <span class="text-decoration-underline text-primary" onclick="window.location.href = '/login'" style="cursor:pointer;">aqui</span></h2>
         </div>
     </body>
+    <script>
+        var form = document.getElementById("form")
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault()
+        })
+
+        function registrar(){
+            var nome = document.getElementById("inputNome").value
+            var usuario = document.getElementById("inputUsuario").value
+            var senha = document.getElementById("inputSenha").value
+
+            var body = {
+                nome: nome,
+                usuario: usuario,
+                senha: senha
+            }
+
+            fetch('/registrar', {
+                method: 'POST',
+                headers: {
+                'content-type': 'application/json',
+                'accept': 'application/json'
+                },
+                body: JSON.stringify(body) 
+            })
+            .then(response => response.json())
+            .then (data =>  {
+                var resposta = JSON.stringify(data)
+                var respostaValues = Object.values(resposta)
+                alert( Object.values(JSON.parse(resposta)))
+            })
+        }
+    </script>
 </html>
