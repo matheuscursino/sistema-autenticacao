@@ -30,8 +30,12 @@
                 'content-type': 'application/json',
                 'accept': 'application/json'
                 }
-            }).then((response) => {
-                console.log(response)
+            })
+            .then(response => response.json())
+            .then (data =>  {
+                var resposta = JSON.stringify(data)
+                var respostaValues = Object.values(resposta)
+                alert( Object.values(JSON.parse(resposta)))
             })
         }
     </script>
