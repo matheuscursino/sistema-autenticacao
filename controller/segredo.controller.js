@@ -17,7 +17,7 @@ export default function RetornarEjs(req, res){
     jwt.verify(token[0], process.env.SEGREDO, function(err, decoded) {
       if (err) {
         res.status(500)
-           .send('erro ao autenticar token')
+           .send('{ "erro": "erro ao autenticar token" }')
       }
       id = decoded.usuarioDocId;
       consultar().then(() => {

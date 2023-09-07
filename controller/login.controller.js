@@ -34,23 +34,23 @@ export function ChecarUsuarioESenha(req, res) {
                     if (usuarioDoc == null) {
                         res
                             .status(404)
-                            .send('Usuário não encontrado')
+                            .send('{ "erro": "usuario nao encontrado" }')
                     } else if (reqSenha != usuarioDocSenha) {
                         res
                             .status(401)
-                            .send('Senha incorreta')
+                            .send('{ "erro": "senha incorreta" }')
                     } else if (reqSenha == usuarioDocSenha){
                         const token = jwt.sign({usuarioDocId}, process.env.SEGREDO)
                         res
                             .cookie('access_token', token, {httpOnly: true, sameSite: true})
                             .status(200)
-                            .send('Login feito com sucesso')
+                            .send('{ "erro": "login feito com sucesso" }')
                     }
                 })
                 .catch( (err) => {
                     res
                         .status(500)
-                        .send(err)
+                        .send('{ "erro": "erro no banco de dados" }')
                 })
 
 }

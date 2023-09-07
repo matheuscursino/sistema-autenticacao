@@ -27,7 +27,7 @@ export function RegistrarUsuario(req, res){
                                         .then(() => {
                                             res
                                                 .status(201)
-                                                .send('Usuario criado')
+                                                .send('{ "erro": "usuario criado" }')
                                                 .redirect('/login')
                                         })
                                         .catch((err) => {
@@ -44,7 +44,7 @@ export function RegistrarUsuario(req, res){
                     .catch((err) => {
                         res
                             .status(500)
-                            .send(err)
+                            .send('{ "erro": "erro no banco de dados" }')
                     })
 }
 

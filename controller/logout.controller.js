@@ -5,6 +5,6 @@ export function logout(req, res) {
         res
             .clearCookie('access_token', {path:'/'})
             .status(200)
-            .send('Logout feito com sucesso')
+            .send('{ "erro": "logout feito  com sucesso" }')
     }
 }
