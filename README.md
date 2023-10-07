@@ -47,7 +47,10 @@ Seguimos com as explicações sobre as features que a aplicação possui.
 **Fluxo de login (ou autenticação)**
 
 O fluxo de login foi mostrado brevemente com uma imagem acima, agora veremos em maior detalhe como ele funciona:
-![Express js (1)](https://github.com/matheuscursino/sistema-autenticacao/assets/142545274/eefe4053-bc97-449d-b459-cf072ecc20a4)
+
+![1](https://github.com/matheuscursino/sistema-autenticacao/assets/142545274/e40a1d39-1f57-4efb-b14a-092a26a52f3e)
+![2](https://github.com/matheuscursino/sistema-autenticacao/assets/142545274/700ab164-e601-4ebc-afe1-4b22d9ea2161)
+
 
 
 
