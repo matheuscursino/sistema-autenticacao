@@ -12,6 +12,7 @@ Sistema de cadastro/login feito usando JSON Web Token para autenticar usuários,
 * [Arquitetura](#arquitetura)
 * [Features](#features)
 * [Como executar o projeto](#como-executar-o-projeto)
+* [To-do](#to-do)
 
 
 <a name="arquitetura"></a>
@@ -57,3 +58,8 @@ O fluxo de login foi mostrado brevemente com uma imagem acima, agora veremos em 
 
 <a name="como-executar-o-projeto"></a>
 ### Como executar o projeto
+
+
+### To-do (para adicionar)
+
+* Encriptação das senha com bcrypt
