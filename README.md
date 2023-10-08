@@ -14,6 +14,13 @@ Sistema de cadastro/login feito usando JSON Web Token para autenticar usuários,
 * [Como executar o projeto](#como-executar-o-projeto)
 * [To-do](#to-do)
 
+<img src= "https://github.com/matheuscursino/sistema-autenticacao/assets/142545274/9267ad0e-7ffc-43a2-89f7-921d2f97b6f0" width=100%>
+<p align="center"> Print do site </p>
+
+
+
+
+
 
 <a name="arquitetura"></a>
 ### Arquitetura
