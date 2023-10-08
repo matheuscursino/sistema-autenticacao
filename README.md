@@ -70,3 +70,5 @@ O fluxo de login foi mostrado brevemente com uma imagem acima, agora veremos em 
 ### To-do (para adicionar)
 
 * Encriptação das senha com bcrypt
+* Colocar filtro de senha no front-end e back-end
+* Colocar filtro para inputs em branco no front-end e back-end
