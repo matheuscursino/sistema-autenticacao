@@ -12,10 +12,10 @@ Sistema de cadastro/login feito usando JSON Web Token para autenticar usuários,
 * [Arquitetura](#arquitetura)
 * [Features](#features)
 * [Como executar o projeto](#como-executar-o-projeto)
-* [To-do](#to-do)
+* [Lista de futuras features](#para-adicionar)
 
 <img src= "https://github.com/matheuscursino/sistema-autenticacao/assets/142545274/9267ad0e-7ffc-43a2-89f7-921d2f97b6f0" width=100%>
-<p align="center"> Print do site </p>
+<p align="center"> Print da página /segredo </p>
 
 
 
@@ -27,7 +27,9 @@ Sistema de cadastro/login feito usando JSON Web Token para autenticar usuários,
 
 Neste projeto foi utilizado como padrão de desenvolvimento o modelo MVC. Podemos ver no exemplo abaixo como o projeto funciona.
 
-![Express js](https://github.com/matheuscursino/sistema-autenticacao/assets/142545274/6b42b257-3d2c-4e26-a3e7-024f9b1baaa5)
+![image](https://github.com/matheuscursino/sistema-autenticacao/assets/142545274/0028f711-0e17-4d72-b012-c62bd5670e09)
+
+
 
 Neste caso o front-end faz uma requisição ao servidor, o servidor interpreta essa requisição e faz as consultas necessárias no banco de dados, o banco de dados responde com esses dados ao servidor e o servidor responde a requisição do front-end com a resposta adequeada.
 
@@ -54,20 +56,34 @@ Seguimos com as explicações sobre as features que a aplicação possui.
 
 **Fluxo de login (ou autenticação)**
 
-O fluxo de login foi mostrado brevemente com uma imagem acima, agora veremos em maior detalhe como ele funciona:
+O fluxo de login funciona conforme as imagens abaixo mostram:
 
-![1](https://github.com/matheuscursino/sistema-autenticacao/assets/142545274/e40a1d39-1f57-4efb-b14a-092a26a52f3e)
-![2](https://github.com/matheuscursino/sistema-autenticacao/assets/142545274/700ab164-e601-4ebc-afe1-4b22d9ea2161)
+![1](https://github.com/matheuscursino/sistema-autenticacao/assets/142545274/f2b1c271-7a77-441e-8500-d213afa0566c)
+![2](https://github.com/matheuscursino/sistema-autenticacao/assets/142545274/91c4195b-4830-444e-93d0-d93b64742f2d)
 
 
+**Fluxo de criação de conta**
+
+O fluxo de criação de conta/registro de usuários funciona da seguinte maneira:
+
+![registrar](https://github.com/matheuscursino/sistema-autenticacao/assets/142545274/d8864133-c589-498e-b1b3-a601d7a8c0fd)
 
 
 
 <a name="como-executar-o-projeto"></a>
 ### Como executar o projeto
 
+Para executar o projeto é necessário ter o Node.Js instalado e possui um cluster rodando no MongoDB Atlas.
 
-### To-do (para adicionar)
+```
+git clone https://github.com/matheuscursino/sistema-autenticacao.git
+cd sistema-autenticacao
+touch .env // crie a variavel MONGO_URL com o link para seu cluster e crie a variavel SEGREDO com a string que será usada pelo JWT
+node main.js
+```
+
+<a name="para-adicionar"></a>
+### Features para adicionar
 
 * Encriptação das senha com bcrypt
 * Colocar filtro de senha no front-end e back-end
