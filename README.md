@@ -14,7 +14,7 @@ Sistema de cadastro/login feito usando JSON Web Token para autenticar usuários,
 * [Como executar o projeto](#como-executar-o-projeto)
 * [Lista de futuras features](#para-adicionar)
 
-<img src= "https://github.com/matheuscursino/sistema-autenticacao/assets/142545274/9267ad0e-7ffc-43a2-89f7-921d2f97b6f0" width=100%>
+<img src= "https://github.com/matheuscursino/sistema-autenticacao/assets/142545274/9c629a0d-4654-4ec5-9ef3-46cd2e990261" width=100%>
 <p align="center"> Print da página /segredo </p>
 
 
@@ -27,8 +27,7 @@ Sistema de cadastro/login feito usando JSON Web Token para autenticar usuários,
 
 Neste projeto foi utilizado como padrão de desenvolvimento o modelo MVC. Podemos ver no exemplo abaixo como o projeto funciona.
 
-![image](https://github.com/matheuscursino/sistema-autenticacao/assets/142545274/0028f711-0e17-4d72-b012-c62bd5670e09)
-
+![mvc](https://github.com/matheuscursino/sistema-autenticacao/assets/142545274/29bba093-9edf-47a3-822b-36cc49535583)
 
 
 Neste caso o front-end faz uma requisição ao servidor, o servidor interpreta essa requisição e faz as consultas necessárias no banco de dados, o banco de dados responde com esses dados ao servidor e o servidor responde a requisição do front-end com a resposta adequeada.
@@ -58,16 +57,15 @@ Seguimos com as explicações sobre as features que a aplicação possui.
 
 O fluxo de login funciona conforme as imagens abaixo mostram:
 
-![1](https://github.com/matheuscursino/sistema-autenticacao/assets/142545274/f2b1c271-7a77-441e-8500-d213afa0566c)
-![2](https://github.com/matheuscursino/sistema-autenticacao/assets/142545274/91c4195b-4830-444e-93d0-d93b64742f2d)
+![login1](https://github.com/matheuscursino/sistema-autenticacao/assets/142545274/a7f82ae5-dbc0-40ce-af2a-f99d52c211c1)
+![login2](https://github.com/matheuscursino/sistema-autenticacao/assets/142545274/702f5f47-7681-46b4-b6af-7aaca2c973c8)
 
 
 **Fluxo de criação de conta**
 
 O fluxo de criação de conta/registro de usuários funciona da seguinte maneira:
 
-![registrar](https://github.com/matheuscursino/sistema-autenticacao/assets/142545274/d8864133-c589-498e-b1b3-a601d7a8c0fd)
-
+![registrar](https://github.com/matheuscursino/sistema-autenticacao/assets/142545274/1dee8636-bd1f-47c5-9367-fe0acb81d15e)
 
 
 <a name="como-executar-o-projeto"></a>
