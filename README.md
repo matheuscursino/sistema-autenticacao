@@ -86,3 +86,4 @@ node main.js
 * Encriptação das senha com bcrypt
 * Colocar filtro de senha no front-end e back-end
 * Colocar filtro para inputs em branco no front-end e back-end
+* Refatoração
